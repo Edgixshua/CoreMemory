@@ -1,9 +1,5 @@
-﻿using Ploeh.AutoFixture;
-using System;
+using Ploeh.AutoFixture;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CoreMemory.DataGeneration
 {
@@ -16,11 +12,11 @@ namespace CoreMemory.DataGeneration
             return fixture.Create<T>();
         }
 
-        public static IEnumerable<T> GenerateObjectCollection<T>()
+        public static IEnumerable<T> GenerateObjectCollection<T>(int collectionAmount)
         {
             Fixture fixture = new Fixture();
 
-            return fixture.CreateMany<T>();
+            return fixture.CreateMany<T>(collectionAmount);
         }
     }
 }
