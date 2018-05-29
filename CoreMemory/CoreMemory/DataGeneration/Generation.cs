@@ -7,14 +7,14 @@ namespace CoreMemory.DataGeneration
     {
         public static T GenerateObject<T>()
         {
-            Fixture fixture = new Fixture();
+            var fixture = new Fixture();
 
             return fixture.Create<T>();
         }
 
         public static IEnumerable<T> GenerateObjectCollection<T>(int collectionAmount)
         {
-            Fixture fixture = new Fixture();
+            var fixture = new Fixture();
 
             return fixture.CreateMany<T>(collectionAmount);
         }

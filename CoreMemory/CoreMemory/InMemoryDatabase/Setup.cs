@@ -7,10 +7,9 @@ namespace CoreMemory.InMemoryDatabase
     {
         public static DbContext InMemoryDatabase<T>() where T : DbContext
         {
-            DbContextOptions<T> options;
             var builder = new DbContextOptionsBuilder<T>();
             builder.UseInMemoryDatabase();
-            options = builder.Options;
+            var options = builder.Options;
 
             return new DbContext(options);
         }
@@ -22,10 +21,9 @@ namespace CoreMemory.InMemoryDatabase
             var connectionString = connectionStringBuilder.ToString();
             var connection = new SqliteConnection(connectionString);
 
-            DbContextOptions<T> options;
             var builder = new DbContextOptionsBuilder<T>();
             builder.UseSqlite(connection);
-            options = builder.Options;
+            var options = builder.Options;
 
             return new DbContext(options);
         }
